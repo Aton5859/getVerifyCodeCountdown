@@ -1,17 +1,41 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>找回密码</ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content fullscreen>
+  <ion-grid class="xmf_form">
+    <ion-row>
+      <ion-item class="item_input">
+        <ion-input type="number" [(ngModel)]="codeParam.usertel" placeholder="手机号"></ion-input>
+        <button item-right ion-button round [disabled]="!verifyCode.disable"
+          (click)="getCode()">{{verifyCode.verifyCodeTips}}</button>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item class="item_input">
+        <ion-input type="number" [(ngModel)]="params.verifyCode" placeholder="验证码"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item class="item_input">
+        <ion-input type="password" [(ngModel)]="params.newPassword" placeholder="密码"> </ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item class="item_input">
+        <ion-input type="password" [(ngModel)]="params.surePassword" placeholder="确认密码"> </ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-col style="padding: 10px 20px 0px 20px;" text-center>
+        <button ion-button full round (click)="doReset()"> 重置 </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col tappable text-center>
+        <!--忘记密码？-->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
